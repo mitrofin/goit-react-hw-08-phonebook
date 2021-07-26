@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import { connect } from 'react-redux';
+import Title from './components/Title/Title';
+import ContactForm from './components/ContactForm/ContactForm';
+import Filter from './components/Filter/Filter';
+import ContactList from './components/ContactList/ContactList';
+import styles from './transitionStyles/app.module.scss';
+import phonebookOperations from './redux/phoneBook/phoneBook-operations';
+import {
+  getAllContacts,
+  getLoading,
+} from './redux/phoneBook/phoneBook-selectors';
+const App = ({ contacts }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Title title="Phonebook" />
+
+      <ContactForm />
+
+      {contacts.length > 0 && <h2 className={styles.title}>Contacts:</h2>}
+
+      <Filter />
+
+      <ContactList />
     </div>
   );
-}
+};
 
-export default App;
+const mapStateToProps = state => ({
+  contacts: getAllContacts(state),
+  isLoading: getLoading(state),
+});
+const mapDispatchToProps = dispatch => ({
+  fetchContacts: () => dispatch(phonebookOperations.fetchContacts()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

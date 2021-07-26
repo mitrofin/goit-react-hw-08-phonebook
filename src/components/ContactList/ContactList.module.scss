@@ -1,0 +1,43 @@
+.contactsList {
+  list-style: none;
+  padding: 5px;
+  margin: auto;
+  width: 500px;
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 12px 4px 21px 4px rgba(0, 0, 0, 0.28);
+}
+
+.listItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid #000000;
+  border-radius: 5px;
+  font-style: italic;
+}
+
+.even {
+  composes: listItem;
+  background-color: rgb(230, 230, 230);
+}
+
+.odd {
+  composes: listItem;
+  background-color: rgb(250, 250, 250);
+}
+
+.deleteButton {
+  border-radius: 5px;
+  padding: 10px;
+  color: #ffffff;
+  background-color: rgb(255, 176, 170);
+  outline: none;
+  &:active,
+  &:hover {
+    color: #000000;
+    background-color: rgb(255, 73, 73);
+  }
+}
