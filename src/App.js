@@ -1,36 +1,47 @@
+import React, { Suspense, lazy, Component } from 'react';
+import { Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Title from './components/Title/Title';
-import ContactForm from './components/ContactForm/ContactForm';
-import Filter from './components/Filter/Filter';
-import ContactList from './components/ContactList/ContactList';
-import styles from './transitionStyles/app.module.scss';
-import phonebookOperations from './redux/phoneBook/phoneBook-operations';
-import {
-  getAllContacts,
-  getLoading,
-} from './redux/phoneBook/phoneBook-selectors';
-const App = ({ contacts }) => {
-  return (
-    <div>
-      <Title title="Phonebook" />
+import Preloader from './components/Preloader/Preloader';
+import Modal from './components/Modal/Modal';
+import { authOperations, authSelectors } from './redux/auth/';
+import routesData from './routes';
+import AppBar from './components/AppBar/AppBar';
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
+class App extends Component {
+  componentDidMount() {
+    this.props.onGetCurrentUser();
+  }
+  render() {
+    return (
+      <>
+        <AppBar />
+        <Suspense
+          fallback={
+            <Modal>
+              <Preloader />
+            </Modal>
+          }
+        >
+          <Switch>
+            {routesData.routes.map(route =>
+              route.private ? (
+                <PrivateRoute key={route.name} {...route} />
+              ) : (
+                <PublicRoute key={route.name} {...route} />
+              ),
+            )}
+            <Redirect to={routesData.pathes.homePage} />
+          </Switch>
+        </Suspense>
+      </>
+    );
+  }
+}
 
-      <ContactForm />
-
-      {contacts.length > 0 && <h2 className={styles.title}>Contacts:</h2>}
-
-      <Filter />
-
-      <ContactList />
-    </div>
-  );
+const mapDispatchToProps = {
+  onGetCurrentUser: authOperations.getCurrentUser,
+  token: authSelectors.getToken,
 };
 
-const mapStateToProps = state => ({
-  contacts: getAllContacts(state),
-  isLoading: getLoading(state),
-});
-const mapDispatchToProps = dispatch => ({
-  fetchContacts: () => dispatch(phonebookOperations.fetchContacts()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
