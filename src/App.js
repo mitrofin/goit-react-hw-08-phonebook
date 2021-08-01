@@ -1,8 +1,8 @@
-import React, { Suspense, lazy, Component } from 'react';
+import React, { Suspense, /* lazy, */ Component } from 'react';
 import { Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Preloader from './components/Preloader/Preloader';
-import Modal from './components/Modal/Modal';
+/* import Preloader from './components/Preloader/Preloader';
+import Modal from './components/Modal/Modal'; */
 import { authOperations, authSelectors } from './redux/auth/';
 import routesData from './routes';
 import AppBar from './components/AppBar/AppBar';
@@ -17,11 +17,11 @@ class App extends Component {
       <>
         <AppBar />
         <Suspense
-          fallback={
+        /* fallback={
             <Modal>
               <Preloader />
             </Modal>
-          }
+          } */
         >
           <Switch>
             {routesData.routes.map(route =>

@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import { Button } from '@material-ui/core';
 import { authSelectors, authOperations } from '../../redux/auth';
-import styles from './UserMenu.module.css';
+import styles from './UserMenu.module.scss';
 
 const UserMenu = ({ email, name, onLogout }) => (
   <div className={styles.container}>

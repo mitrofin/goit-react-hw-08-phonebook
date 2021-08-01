@@ -6,7 +6,7 @@ import * as yup from 'yup';
 import { TextField } from 'formik-material-ui';
 import { Container, Button, Box } from '@material-ui/core';
 import SaveIcon from '@material-ui/icons/Save';
-import styles from './EditContactView.module.css';
+import styles from './EditContactView.module.scss';
 import routesData from '../../routes';
 import phonebookOperations from '../../redux/phoneBook/phoneBook-operations';
 import Notification from '../../components/Notification/Notification';

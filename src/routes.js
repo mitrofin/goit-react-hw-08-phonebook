@@ -9,7 +9,7 @@ const pathes = {
 };
 
 const HomeView = lazy(() => import('./views/HomeView/HomeView.js'));
-const ContactsView = lazy(() => import('./views/ContactsView/ContactsView.js'));
+const ContactsView = lazy(() => import('./views/ContactsView/ContactsView'));
 const RegisterView = lazy(() => import('./views/RegisterView/RegisterView.js'));
 const LogInView = lazy(() => import('./views/LoginView/LoginView.js'));
 const EditContactView = lazy(() =>

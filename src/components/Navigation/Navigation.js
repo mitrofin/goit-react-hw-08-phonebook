@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import routesData from '../../routes';
 import { authSelectors } from '../../redux/auth';
 
-import styles from './Navigation.module.css';
+import styles from './Navigation.module.scss';
 
 const Navigation = ({ isAuthenticated }) => {
   return (

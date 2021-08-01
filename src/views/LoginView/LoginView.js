@@ -7,10 +7,10 @@ import { Container, Button } from '@material-ui/core';
 import Notification from '../../components/Notification/Notification';
 import Title from '../../components/Title/Title';
 import { authOperations, authSelectors } from '../../redux/auth';
-import Modal from '../../components/Modal/Modal';
-import Preloader from '../../components/Preloader/Preloader';
-import styles from './LoginView.module.css';
-import loginAndRegisterViewTransitionStyles from '../../transitionStyles/loginAndRegisterViewTransitionStyles.module.css';
+/* import Modal from '../../components/Modal/Modal';
+import Preloader from '../../components/Preloader/Preloader'; */
+import styles from './LoginView.module.scss';
+import loginAndRegisterViewTransitionStyles from '../../transitionStyles/loginAndRegisterViewTransitionStyles.module.scss';
 
 const validationSchema = yup.object({
   email: yup.string().email().required('Please enter email'),
@@ -19,11 +19,12 @@ const validationSchema = yup.object({
 
 const LogInView = ({ handleLogInClick, errorMessage, isAuthLoading }) => (
   <>
-    {isAuthLoading && (
-      <Modal>
+    {isAuthLoading &&
+      {
+        /* <Modal>
         <Preloader />
-      </Modal>
-    )}
+      </Modal> */
+      }}
     <CSSTransition
       in={true}
       appear

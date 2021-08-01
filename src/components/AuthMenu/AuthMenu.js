@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import routesData from '../../routes';
-import styles from './AuthMenu.module.css';
+import styles from './AuthMenu.module.scss';
 
 const AuthMenu = () => (
   <>
