@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 
-const pathes = {
+export const pathes = {
   homePage: '/',
   loginPage: '/login',
   registerPage: '/register',
@@ -16,7 +16,7 @@ const EditContactView = lazy(() =>
   import('./views/EditContactView/EditContactView.js'),
 );
 
-const routes = [
+export const routes = [
   {
     name: 'Home',
     path: pathes.homePage,
@@ -65,4 +65,4 @@ const routes = [
   },
 ];
 
-export default { pathes, routes };
+/* export default { pathes, routes }; */
