@@ -5,8 +5,8 @@ import Title from '../../components/Title/Title';
 import ContactForm from '../../components/ContactForm/ContactForm';
 import Filter from '../../components/Filter/Filter';
 import ContactList from '../../components/ContactList/ContactList';
-/* import Modal from '../../components/Modal/Modal';
-import Preloader from '../../components/Preloader/Preloader'; */
+import Modal from '../../components/Modal/Modal';
+import Preloader from '../../components/Preloader/Preloader';
 import styles from '../../transitionStyles/app.module.scss';
 import phonebookOperations from '../../redux/phoneBook/phoneBook-operations';
 import {
@@ -24,12 +24,11 @@ class ContactsView extends Component {
     return (
       <>
         {this.props.isLoading ||
-          (this.props.isAuthLoading &&
-            {
-              /* <Modal>
+          (this.props.isAuthLoading && (
+            <Modal>
               <Preloader />
-            </Modal> */
-            })}
+            </Modal>
+          ))}
         <Container maxWidth="md">
           <Title title="Phonebook:" />
 

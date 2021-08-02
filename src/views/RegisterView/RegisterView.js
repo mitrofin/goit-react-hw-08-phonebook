@@ -7,8 +7,8 @@ import { TextField } from 'formik-material-ui';
 import Notification from '../../components/Notification/Notification';
 import Title from '../../components/Title/Title';
 import { authOperations, authSelectors } from '../../redux/auth';
-/* import Modal from '../../components/Modal/Modal';
-import Preloader from '../../components/Preloader/Preloader'; */
+import Modal from '../../components/Modal/Modal';
+import Preloader from '../../components/Preloader/Preloader';
 import styles from './RegisterView.module.scss';
 import loginAndRegisterViewTransitionStyles from '../../transitionStyles/loginAndRegisterViewTransitionStyles.module.scss';
 
@@ -23,11 +23,11 @@ const validationSchema = yup.object({
 
 const RegisterView = ({ handleRegisterClick, errorMessage, isAuthLoading }) => (
   <>
-    {/* {isAuthLoading && (
+    {isAuthLoading && (
       <Modal>
         <Preloader />
       </Modal>
-    )} */}
+    )}
     <CSSTransition
       in={true}
       appear

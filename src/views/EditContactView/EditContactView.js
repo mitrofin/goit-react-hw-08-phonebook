@@ -7,12 +7,12 @@ import { TextField } from 'formik-material-ui';
 import { Container, Button, Box } from '@material-ui/core';
 import SaveIcon from '@material-ui/icons/Save';
 import styles from './EditContactView.module.scss';
-import routesData from '../../routes';
+import { pathes } from '../../routes';
 import phonebookOperations from '../../redux/phoneBook/phoneBook-operations';
 import Notification from '../../components/Notification/Notification';
 import Title from '../../components/Title/Title';
-/* import Modal from '../../components/Modal/Modal';
-import Preloader from '../../components/Preloader/Preloader'; */
+import Modal from '../../components/Modal/Modal';
+import Preloader from '../../components/Preloader/Preloader';
 import {
   getAllContacts,
   getErrorMessage,
@@ -48,7 +48,7 @@ class ContactUpdateView extends Component {
 
   returnHandler = async () => {
     const { location, history } = this.props;
-    await history.push(location?.state?.from || routesData.pathes.contacts);
+    await history.push(location?.state?.from || pathes.contacts);
   };
 
   render() {
@@ -57,12 +57,11 @@ class ContactUpdateView extends Component {
     return (
       <>
         {this.props.isLoading ||
-          (this.props.isAuthLoading &&
-            {
-              /* <Modal>
+          (this.props.isAuthLoading && (
+            <Modal>
               <Preloader />
-            </Modal> */
-            })}
+            </Modal>
+          ))}
         <Container maxWidth="md">
           <Title title="Edit choosen contact:" />
           <Notification
@@ -107,7 +106,7 @@ class ContactUpdateView extends Component {
                 margin="dense"
               />
               <Box className={styles.btnWrapper}>
-                <Link to={routesData.pathes.contacts}>
+                <Link to={pathes.contacts}>
                   <Button
                     variant="contained"
                     color="primary"

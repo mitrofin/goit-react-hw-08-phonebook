@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import styles from './HomeView.module.scss';
 import { authSelectors } from '../../redux/auth';
-/* import Modal from '../../components/Modal/Modal';
-import Preloader from '../../components/Preloader/Preloader'; */
+import Modal from '../../components/Modal/Modal';
+import Preloader from '../../components/Preloader/Preloader';
 
 const HomeView = ({ userName, email, isAuthLoading }) => (
   <div className={styles.container}>
@@ -12,12 +12,11 @@ const HomeView = ({ userName, email, isAuthLoading }) => (
         😃
       </span>
     </h1>
-    {isAuthLoading &&
-      {
-        /* <Modal>
+    {isAuthLoading && (
+      <Modal>
         <Preloader />
-      </Modal> */
-      }}
+      </Modal>
+    )}
   </div>
 );
 
