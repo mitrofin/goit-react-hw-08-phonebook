@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Preloader from './components/Preloader/Preloader';
 import Modal from './components/Modal/Modal';
 import { authOperations, authSelectors } from './redux/auth/';
-import { pathes, routes } from './routes';
+import routesData from './routes';
 import AppBar from './components/AppBar/AppBar';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
@@ -24,14 +24,14 @@ class App extends Component {
           }
         >
           <Switch>
-            {routes.map(route =>
+            {routesData.routes.map(route =>
               route.private ? (
                 <PrivateRoute key={route.name} {...route} />
               ) : (
                 <PublicRoute key={route.name} {...route} />
               ),
             )}
-            <Redirect to={pathes.homePage} />
+            <Redirect to={routesData.pathes.homePage} />
           </Switch>
         </Suspense>
       </>

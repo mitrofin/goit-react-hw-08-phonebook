@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 
-export const pathes = {
+const pathes = {
   homePage: '/',
   loginPage: '/login',
   registerPage: '/register',
@@ -9,14 +9,14 @@ export const pathes = {
 };
 
 const HomeView = lazy(() => import('./views/HomeView/HomeView.js'));
-const ContactsView = lazy(() => import('./views/ContactsView/ContactsView'));
+const ContactsView = lazy(() => import('./views/ContactsView/ContactsView.js'));
 const RegisterView = lazy(() => import('./views/RegisterView/RegisterView.js'));
 const LogInView = lazy(() => import('./views/LoginView/LoginView.js'));
 const EditContactView = lazy(() =>
   import('./views/EditContactView/EditContactView.js'),
 );
 
-export const routes = [
+const routes = [
   {
     name: 'Home',
     path: pathes.homePage,
@@ -65,4 +65,4 @@ export const routes = [
   },
 ];
 
-/* export default { pathes, routes }; */
+export default { pathes, routes };

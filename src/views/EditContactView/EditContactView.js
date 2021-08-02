@@ -7,7 +7,7 @@ import { TextField } from 'formik-material-ui';
 import { Container, Button, Box } from '@material-ui/core';
 import SaveIcon from '@material-ui/icons/Save';
 import styles from './EditContactView.module.scss';
-import { pathes } from '../../routes';
+import routesData from '../../routes';
 import phonebookOperations from '../../redux/phoneBook/phoneBook-operations';
 import Notification from '../../components/Notification/Notification';
 import Title from '../../components/Title/Title';
@@ -48,7 +48,7 @@ class ContactUpdateView extends Component {
 
   returnHandler = async () => {
     const { location, history } = this.props;
-    await history.push(location?.state?.from || pathes.contacts);
+    await history.push(location?.state?.from || routesData.pathes.contacts);
   };
 
   render() {
@@ -106,7 +106,7 @@ class ContactUpdateView extends Component {
                 margin="dense"
               />
               <Box className={styles.btnWrapper}>
-                <Link to={pathes.contacts}>
+                <Link to={routesData.pathes.contacts}>
                   <Button
                     variant="contained"
                     color="primary"

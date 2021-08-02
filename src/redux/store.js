@@ -29,7 +29,7 @@ const middleware = [
   logger,
 ];
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
     contacts: contactsReducer,
     auth: persistReducer(authPersistConfig, authReducer),
@@ -38,6 +38,6 @@ export const store = configureStore({
   devTools: process.env.NODE_ENV === 'development',
 });
 
-export const persistor = persistStore(store);
+const persistor = persistStore(store);
 
-/* export default { store, persistor }; */
+export default { store, persistor };

@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import { pathes } from '../../routes';
+import routesData from '../../routes';
 import styles from './AuthMenu.module.scss';
 
 const AuthMenu = () => (
@@ -7,7 +7,7 @@ const AuthMenu = () => (
     <nav className={styles.authNav}>
       <NavLink
         exact
-        to={pathes.registerPage}
+        to={routesData.pathes.registerPage}
         className={styles.navLink}
         activeClassName={styles.activeNavLink}
       >
@@ -15,7 +15,7 @@ const AuthMenu = () => (
       </NavLink>
       <NavLink
         exact
-        to={pathes.loginPage}
+        to={routesData.pathes.loginPage}
         className={styles.navLink}
         activeClassName={styles.activeNavLink}
       >
