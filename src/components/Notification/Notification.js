@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-
 import { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import notificationTransitionStyles from '../../transitionStyles/notificationTransition.module.scss';

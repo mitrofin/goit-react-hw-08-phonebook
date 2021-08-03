@@ -89,9 +89,6 @@ const RegisterView = ({ handleRegisterClick, errorMessage, isAuthLoading }) => (
             >
               Register
             </Button>
-            {/* <button type="submit" className={styles.submitButton}>
-            Register
-          </button> */}
           </Form>
         </Formik>
       </Container>

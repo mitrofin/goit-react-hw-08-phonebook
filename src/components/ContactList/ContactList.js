@@ -4,6 +4,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styles from './ContactList.module.scss';
 import contactListTransition from '../../transitionStyles/contactListTransition.module.scss';
 import ContactListItem from '../ContactListItem/ContactListItem';
+import { getVisibleContacts } from '../../redux/phoneBook/phoneBook-selectors';
 
 function ContactList({ contacts }) {
   return (
@@ -31,20 +32,7 @@ function ContactList({ contacts }) {
   );
 }
 
-const getFilteredContactsList = (allContacts, filter) => {
-  const normalizedFilter = filter.toLowerCase();
-  return allContacts.filter(({ name }) =>
-    name.toLowerCase().includes(normalizedFilter),
-  );
-};
-
-const mapStateToProps = state => {
-  const { items, filter } = state.contacts;
-  const visibleContacts = getFilteredContactsList(items, filter);
-  return {
-    contacts: visibleContacts,
-  };
-};
+const mapStateToProps = state => ({ contacts: getVisibleContacts(state) });
 
 export default connect(mapStateToProps, null)(ContactList);
 
