@@ -41,7 +41,7 @@ class App extends Component {
 
 const mapDispatchToProps = {
   onGetCurrentUser: authOperations.getCurrentUser,
-  token: authSelectors.getToken,
+  /* token: authSelectors.getToken, */
 };
 
 export default connect(null, mapDispatchToProps)(App);

@@ -1,15 +1,15 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import { TextField } from 'formik-material-ui';
+import { Button } from '@material-ui/core';
 import * as yup from 'yup';
-import { v4 as uuidv4 } from 'uuid';
 import phonebookOperations from '../../redux/phoneBook/phoneBook-operations';
 import styles from './ContactForm.module.scss';
 import Notification from '../Notification/Notification';
 import {
-  getErrorMessage,
   getAllContacts,
+  getErrorMessage,
 } from '../../redux/phoneBook/phoneBook-selectors';
 
 const validationSchema = yup.object({
@@ -21,7 +21,7 @@ const validationSchema = yup.object({
 });
 
 class ContactForm extends Component {
-  state = { name: '', number: '', isContactExists: false };
+  state = { isContactExists: false };
 
   handleSubmit = contactObj => {
     if (this.props.contacts.some(({ name }) => name === contactObj.name)) {
@@ -53,38 +53,38 @@ class ContactForm extends Component {
           initialValues={{ name: '', number: '' }}
           validationSchema={validationSchema}
           onSubmit={({ name, number }, { resetForm, setSubmitting }) => {
-            this.handleSubmit({ name, number, id: uuidv4() });
+            this.handleSubmit({ name, number });
             setSubmitting(false);
             resetForm();
           }}
         >
           <Form className={styles.contactForm}>
-            <label className={styles.nameLabel}>
-              Name:
-              <Field
-                type="text"
-                name="name"
-                className={styles.contactFormInput}
-              />
-              <span className={styles.errorMessage}>
-                <ErrorMessage name="name" />
-              </span>
-            </label>
+            <Field
+              component={TextField}
+              type="text"
+              name="name"
+              label="Name:"
+              variant="outlined"
+              margin="dense"
+            />
 
-            <label className={styles.numberLabel}>
-              Number:
-              <Field
-                type="tel"
-                name="number"
-                className={styles.contactFormInput}
-              />
-              <span className={styles.errorMessage}>
-                <ErrorMessage name="number" />
-              </span>
-            </label>
-            <button type="submit" className={styles.submitButton}>
-              Add contact
-            </button>
+            <Field
+              component={TextField}
+              type="tel"
+              name="number"
+              label="Number:"
+              variant="outlined"
+              margin="dense"
+            />
+
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              size="medium"
+            >
+              Add new contact
+            </Button>
           </Form>
         </Formik>
       </>
