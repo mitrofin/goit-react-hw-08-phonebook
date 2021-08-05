@@ -3,7 +3,7 @@ import { Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Preloader from './components/Preloader/Preloader';
 import Modal from './components/Modal/Modal';
-import { authOperations, authSelectors } from './redux/auth/';
+import { authOperations } from './redux/auth/';
 import routesData from './routes';
 import AppBar from './components/AppBar/AppBar';
 import PrivateRoute from './components/PrivateRoute';

@@ -8,9 +8,7 @@ const HomeView = ({ userName, email, isAuthLoading }) => (
   <div className={styles.container}>
     <h1 className={styles.title}>
       Welcome to homepage, {userName ? userName : email ? email : 'Guest'}
-      <span role="img" aria-label="Иконка приветствия">
-        😃
-      </span>
+      <span role="img" aria-label="Иконка приветствия"></span>
     </h1>
     {isAuthLoading && (
       <Modal>

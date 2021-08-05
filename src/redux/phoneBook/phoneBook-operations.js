@@ -15,7 +15,7 @@ import {
   errorRemover,
 } from './phoneBook-actions';
 
-axios.defaults.baseURL = 'http://localhost:4040';
+axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
 
 const resetError = dispatch =>
   setTimeout(() => dispatch(errorRemover(null)), 3000);
